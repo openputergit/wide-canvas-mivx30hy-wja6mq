@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Radhe Traders - Quality Construction Materials</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f97316', // Orange-500
+                        secondary: '#ea580c', // Orange-600
+                        'primary-light': '#fff7ed', // Orange-50
+                        dark: '#1f2937',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Hero Background with Overlay */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Animation Utilities */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .brick-pattern {
+            background-color: #f97316;
+            background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 22h20v20H0V22zm22 0h20v20H22V22z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full z-50 bg-white shadow-lg transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 bg-primary rounded bg-opacity-90 flex items-center justify-center text-white">
+                        <i class="bi bi-bricks text-xl"></i>
+                    </div>
+                    <a href="#" class="font-bold text-2xl text-gray-900 tracking-tight">Shree Radhe <span class="text-primary">Traders</span></a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary font-medium transition duration-150">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary font-medium transition duration-150">About Us</a>
+                    <a href="#products" class="text-gray-600 hover:text-primary font-medium transition duration-150">Products</a>
+                    <a href="#why-us" class="text-gray-600 hover:text-primary font-medium transition duration-150">Why Us</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary font-medium transition duration-150">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none p-2">
+                        <i class="bi bi-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary transition">Home</a>
+                <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary transition">About Us</a>
+                <a href="#products" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary transition">Products</a>
+                <a href="#why-us" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary transition">Why Us</a>
+                <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-primary transition">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-4 text-center z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg reveal active">
+                Building India's Future<br>With <span class="text-primary">Quality Material</span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto drop-shadow-md reveal active" style="transition-delay: 100ms;">
+                Premium supplier of Cement, Steel, Bricks, and Construction Supplies at unbeatable market rates.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 reveal active" style="transition-delay: 200ms;">
+                <a href="#products" class="px-8 py-4 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow-lg transition duration-300 flex items-center justify-center gap-2">
+                    Explore Products <i class="bi bi-arrow-right"></i>
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-lg shadow-lg transition duration-300">
+                    Get a Quote
+                </a>
+            </div>
+        </div>
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+            <a href="#about" class="text-white opacity-80 hover:opacity-100">
+                <i class="bi bi-chevron-down text-3xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 reveal">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Construction Site" class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[500px]">
+                        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary rounded-xl -z-0 hidden md:block"></div>
+                        <div class="absolute -top-6 -left-6 w-48 h-48 bg-gray-200 rounded-xl -z-0 hidden md:block"></div>
+                        
+                        <!-- Experience Badge -->
+                        <div class="absolute bottom-8 left-8 bg-white p-6 rounded-lg shadow-xl z-20">
+                            <h3 class="text-4xl font-bold text-primary">15+</h3>
+                            <p class="text-gray-600 font-medium">Years of Trust</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 reveal">
+                    <span class="text-primary font-semibold tracking-wider uppercase mb-2 block">About Us</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Your Trusted Partner in Construction</h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        At <span class="font-bold text-gray-800">Shree Radhe Traders</span>, we understand that a strong foundation is the key to every lasting structure. As a leading supplier of construction materials, we are dedicated to providing top-quality products to engineers, builders, and homeowners alike.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        From high-grade cement to durable steel bars and premium bricks, our extensive inventory ensures your project never halts. We pride ourselves on timely delivery, transparent pricing, and efficient customer service.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-orange-100 p-2 rounded text-primary"><i class="bi bi-check-lg text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Premium Quality</h4>
+                                <p class="text-sm text-gray-500">Certified materials only</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-orange-100 p-2 rounded text-primary"><i class="bi bi-truck text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Fast Delivery</h4>
+                                <p class="text-sm text-gray-500">On-site delivery support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Products Section -->
+    <section id="products" class="py-20 bg-gray-50 scroll-mt-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-primary font-semibold tracking-wider uppercase mb-2 block">Our Products</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Everything You Need to Build</h2>
+                <p class="text-gray-600 mt-4">Browse our wide range of construction materials sourced from the best manufacturers.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 reveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1590089865612-40995fa64c54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Red Bricks" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Premium Red Bricks</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">High-strength clay bricks perfect for load-bearing walls and aesthetic finishing.</p>
+                        <button onclick="requestQuote('Red Bricks')" class="text-primary font-semibold hover:text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            Enquire Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 reveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1565514020176-db93789d316e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cement Bags" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Grade A Cement</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">Top brands available (Ultratech, Ambuja, ACC). PPC and OPC grades for all construction needs.</p>
+                        <button onclick="requestQuote('Cement')" class="text-primary font-semibold hover:text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            Enquire Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 reveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1533240974640-5e347ec2e535?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="River Sand" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">River Sand & Aggregates</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">Filtered river sand and stone aggregates (Rodi) in various sizes for concrete mixing.</p>
+                        <button onclick="requestQuote('Sand & Aggregates')" class="text-primary font-semibold hover:text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            Enquire Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 reveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="TMT Steel Bars" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">TMT Steel Bars</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">High flexibility and strength TMT bars (Fe 500/550) for earthquake-resistant structures.</p>
+                        <button onclick="requestQuote('TMT Steel Bars')" class="text-primary font-semibold hover:text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            Enquire Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 reveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1620619767323-b95a89183081?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plumbing Pipes" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">PVC & GI Pipes</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">Durable plumbing solutions including PVC, CPVC, and GI pipes and fittings.</p>
+                        <button onclick="requestQuote('Pipes')" class="text-primary font-semibold hover:text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            Enquire Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 reveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Construction Tools" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Hardware & Tools</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">Essential construction tools, paints, binding wires, and safety equipment.</p>
+                        <button onclick="requestQuote('Hardware Tools')" class="text-primary font-semibold hover:text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                            Enquire Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-primary-light relative overflow-hidden">
+        <!-- Decorative abstract shape -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-primary opacity-5"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-primary opacity-5"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition reveal border-t-4 border-primary">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                        <i class="bi bi-shield-check text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Guaranteed Quality</h3>
+                    <p class="text-gray-600 text-sm">We only stock products from certified and reputed manufacturers.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition reveal border-t-4 border-primary" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                        <i class="bi bi-tag text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Best Pricing</h3>
+                    <p class="text-gray-600 text-sm">Competitive wholesale rates that fit your construction budget.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition reveal border-t-4 border-primary" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                        <i class="bi bi-clock-history text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Timely Delivery</h3>
+                    <p class="text-gray-600 text-sm">Our logistics network ensures your material reaches the site on time.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition reveal border-t-4 border-primary" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                        <i class="bi bi-people text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Expert Consultation</h3>
+                    <p class="text-gray-600 text-sm">Guidance on selecting the right materials for specific needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section (Optional visually appealing break) -->
+    <section class="py-12 bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                <div>
+                    <div class="text-3xl font-bold mb-1">500+</div>
+                    <div class="text-sm opacity-90">Happy Clients</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-1">1000+</div>
+                    <div class="text-sm opacity-90">Projects Supplied</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-1">50+</div>
+                    <div class="text-sm opacity-90">Brand Partners</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-1">24/7</div>
+                    <div class="text-sm opacity-90">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12">
+                <!-- Contact Info -->
+                <div class="md:w-1/3 reveal">
+                    <span class="text-primary font-semibold tracking-wider uppercase mb-2 block">Get In Touch</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Contact Us</h2>
+                    <p class="text-gray-600 mb-8">Ready to start your project? Have a question about our stock? Reach out to us today.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="bi bi-geo-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Our Location</h4>
+                                <p class="text-gray-600">Shop No. 12, Industrial Area,<br>Near Main Market, City Name, India - 110001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="bi bi-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Email Address</h4>
+                                <p class="text-gray-600">contact@shreeradhetraders.in</p>
+                                <p class="text-gray-600">sales@shreeradhetraders.in</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="bi bi-telephone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Phone Number</h4>
+                                <p class="text-gray-600">+91 98765 43210</p>
+                                <p class="text-gray-600">+91 12345 67890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="md:w-2/3 bg-white rounded-2xl shadow-xl p-8 border border-gray-100 reveal">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-2" for="name">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-2" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="+91 9876543210" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2" for="email">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2" for="subject">Product Interest</label>
+                            <select id="subject" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Red Bricks">Red Bricks</option>
+                                <option value="Cement">Cement</option>
+                                <option value="Steel">Steel / TMT</option>
+                                <option value="Sand">Sand / Aggregates</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2" for="message">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="Tell us about your requirement..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-primary text-white font-bold rounded-lg hover:bg-secondary shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8 text-gray-300">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white text-sm">
+                            <i class="bi bi-bricks"></i>
+                        </div>
+                        <span class="font-bold text-xl text-white">Shree Radhe <span class="text-primary">Traders</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6">
+                        Your trusted partner for all construction material needs. Providing quality, durability, and reliability for over 15 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition text-white"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition text-white"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#home" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="#products" class="hover:text-primary transition">Products</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Our Products</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-primary transition">Cement (OPC/PPC)</a></li>
+                        <li><a href="#" class="hover:text-primary transition">TMT Steel Bars</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Red Clay Bricks</a></li>
+                        <li><a href="#" class="hover:text-primary transition">River Sand</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Plumbing Materials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Get In Touch</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="bi bi-geo-alt mt-1 text-primary"></i>
+                            <span>Shop No. 12, Industrial Area,<br>City Name, State - 110001</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="bi bi-telephone text-primary"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="bi bi-envelope text-primary"></i>
+                            <span>contact@shreeradhetraders.in</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                <p>&copy; 2023 Shree Radhe Traders. All Rights Reserved.</p>
+                <div class="flex items-center gap-1">
+                    <span>Designed with</span>
+                    <i class="bi bi-heart-fill text-red-500 text-xs"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110">
+        <i class="bi bi-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Sticky Navbar Effect and Scroll Reveal
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            
+            // Simple Scroll Reveal Logic
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for(let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if(elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        });
+
+        // Initial check for reveals on load
+        document.addEventListener('DOMContentLoaded', () => {
+             const reveals = document.querySelectorAll('.reveal');
+             reveals.forEach(r => {
+                 const windowHeight = window.innerHeight;
+                 const elementTop = r.getBoundingClientRect().top;
+                 if(elementTop < windowHeight - 50) {
+                     r.classList.add('active');
+                 }
+             });
+        });
+
+        // Form Handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Thank you ${name}! Your message has been sent to Shree Radhe Traders. We will contact you shortly.`);
+            contactForm.reset();
+        });
+
+        // Request Quote Helper for Product Buttons
+        function requestQuote(productName) {
+            const subjectSelect = document.getElementById('subject');
+            const messageArea = document.getElementById('message');
+            
+            // Scroll to contact form
+            document.getElementById('contact').scrollIntoView();
+            
+            // Pre-fill form if logic allows (simple visual simulation here)
+            // Try to select option simply
+            let options = Array.from(subjectSelect.options);
+            let optionToSelect = options.find(item => item.value === productName || item.value.includes(productName.split(' ')[0]));
+            if(optionToSelect) {
+                subjectSelect.value = optionToSelect.value;
+            } else {
+                subjectSelect.value = "General Inquiry";
+                messageArea.value = `I am interested in ${productName}. Please provide quote.`;
+            }
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
